@@ -1,28 +1,46 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Fixed navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="nav navbar-nav mr-auto">
+          <router-link tag="li" class="nav-item" active-class="active" to="/" exact>
+            <a class="nav-link">
+              Главная
+            </a>
+          </router-link>
+          <router-link tag="li" class="nav-item" active-class="active" to="/users" exact>
+            <a class="nav-link">
+              Список пользователей
+            </a>
+          </router-link>
+          <router-link tag="li" class="nav-item" active-class="active" to="/add" exact>
+            <a class="nav-link">
+              Добавление пользователя
+            </a>
+          </router-link>
+        </ul>
+      </div>
+    </nav>
+    <main role="main" class="container">
+      <router-view/>
+    </main>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import 'bootstrap/dist/css/bootstrap.css'
 export default {
   name: 'app',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
 </style>
